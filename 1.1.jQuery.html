@@ -10,21 +10,25 @@
           var shadesNumber = 50;
           var timeout = (shadesNumber - 1) * duration;
 
-          var r = 260;
+          var r = 200;
           var a = 5;
+          var b = 230;
           var timerId = setInterval(function(){
             r = r - a;
             // alert(r);
             console.log(r);
             var n = r.toString(16);
+            var k = b.toString(16);
+
             // alert(n);
             var m;
-            m = n + n + n;
+            m = k + n + n;
             if(r < 16) {
-                m = "0" + n + "0" + n + "0" + n;
+                m = k  + "0" + n + "0" + n;
             };
             console.log(m);
             console.log(n);
+            console.log(k);
                 // alert( 'Вы просмотрели 50 оттенков чёрного! Спасибо за внимание!');
 
             $("body").css("background-color", "#" + m);
