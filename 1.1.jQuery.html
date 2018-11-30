@@ -5,7 +5,7 @@
 "></script>
     <!-- <script src="/home/stefany/Рабочий стол/jQuery/package-lock.json"></script> -->
     <script>
-      
+
       $(document).ready(function(){
         $("button").click(function(){
           var duration = 250;
@@ -24,9 +24,9 @@
 
             // alert(n);
             var m;
-            m = k + n + n;
+            m = n + n + k;
             if(r < 16) {
-                m = k  + "0" + n + "0" + n;
+                m = "0" +n  + "0" + n +  k;
             };
             console.log(m);
             console.log(n);
@@ -39,7 +39,7 @@
 
           setTimeout(function() {
             clearInterval(timerId);
-              alert("Затемнение экрана произошло за " + timeout + "sec.");
+              alert("Изменеие цвета экрана произошло за " + timeout + "sec.");
           }, timeout);
         });
       });
