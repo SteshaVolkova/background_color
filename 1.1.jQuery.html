@@ -1,31 +1,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
-    <script src="node_modules/jquery-modal/jquery.modal.min.js"></script>
-    
-    <!-- <script src="/home/stefany/Рабочий стол/jQuery/package-lock.json"></script> -->
-    <!-- <style type="text/css">
-    #tabs
-    {
-    font-size:0.7em;
-    height:500px;
-    }
-    </style>
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-        $("#tabs").tabs();
-        $("#ftab").click(function(){ $("#dial").dialog("open");});
-        $("#dial").dialog({width:400,height:210});
-      });
-    </script> -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="package-lock.json"></script> -->
     <script>
-
-      // $("#fade").modal({
-      //   fadeDuration: 100
-      // });
-
       $(document).ready(function(){
         $("button").click(function(){
           var duration = 250;
@@ -34,7 +12,7 @@
 
           var r = 200;
           var a = 5;
-          var b = 230;
+          var b = 250;
           var timerId = setInterval(function(){
             r = r - a;
             // alert(r);
@@ -46,7 +24,7 @@
             var m;
             m = n + k + k;
             if(r < 16) {
-                m = "0" + n  + k +  k;
+                m = "0" + n +  k  + k;
             };
             console.log(m);
             console.log(n);
@@ -59,7 +37,7 @@
 
           setTimeout(function() {
             clearInterval(timerId);
-              alert("Изменеие цвета экрана произошло за " + timeout + "sec.");
+              alert("Изменение цвета экрана произошло за " + timeout + "sec.");
           }, timeout);
         });
       });
@@ -71,17 +49,8 @@
         </style>
     </head>
     <body>
-      <!-- <div id="tabs">
-        <ul>
-          <li><a id="ftab" href="#tabs-1">Стандартное использование</a></li>
-        </ul>
-      </div>
-      <div id="dial" title="Диалоговое окно">
-        <p>Это <b>диалоговое окно</b>. Диалоговое окно можно <i>перетаскивать</i> и <i>растягивать</i>. Вы можете также <i>закрыть</i> окно с помощью
-иконки "x" в верхнем правом углу окна.</p>
-</div> -->
-      <script type="text/javascript">
+      <!-- <script type="text/javascript"> -->
         <button type="button" name="button">Go</button>
-      </script>
-  </body>
-  </html>
+      <!-- </script> -->
+    </body>
+    </html>
