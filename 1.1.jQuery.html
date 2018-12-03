@@ -1,38 +1,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
     <script src="node_modules/jquery-modal/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="node_modules/jquery-modal/jquery.modal.min.css" />
-
-
-    <style type="text/css" media="screen">
-    html {
-      font-size: 18px;
-    }
-
-    body {
-      font-weight: 400;
-      font-family: "Nunito", "Helvetica Neue", arial, sans-serif;
-      line-height: 1.666;
-      -webkit-font-smoothing: antialiased;
-      color: #5e6c76;
-      margin: 0;
-      padding: 10px 0 0 0;
-    }
-    .modal a.close-modal { border: none; };
-
-    </style>
-
-
-
-
+    <link rel="stylesheet" href="node_modules/jquery-modal/jquery.modal.min.css"/>
     <!-- <script src="/home/stefany/Рабочий стол/jQuery/package-lock.json"></script> -->
+    <!-- <style type="text/css">
+    #tabs
+    {
+    font-size:0.7em;
+    height:500px;
+    }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $("#tabs").tabs();
+        $("#ftab").click(function(){ $("#dial").dialog("open");});
+        $("#dial").dialog({width:400,height:210});
+      });
+    </script> -->
     <script>
 
-      $("#fade").modal({
-        fadeDuration: 100
-      });
+      // $("#fade").modal({
+      //   fadeDuration: 100
+      // });
 
       $(document).ready(function(){
         $("button").click(function(){
@@ -79,20 +71,17 @@
         </style>
     </head>
     <body>
-      <div class="jquery-modal blicker current" style="opacity: 1;">
-        <div id="ex1" class="modal" style="opacity: 1; display: inline-block;">
-          <p>
-            <front style="vertical-align: inherit">This is window with my text.</front>
-          </p>
-          <a href="#close-modal" rel="modal: close" class="close-modal">
-            <font style="vertical-align: inherit">
-              <font style="vertical-align: inherit">близко</font>
-            </font>
-          </a>
-        </div>
+      <!-- <div id="tabs">
+        <ul>
+          <li><a id="ftab" href="#tabs-1">Стандартное использование</a></li>
+        </ul>
       </div>
-      <!-- <script type="text/javascript"> -->
+      <div id="dial" title="Диалоговое окно">
+        <p>Это <b>диалоговое окно</b>. Диалоговое окно можно <i>перетаскивать</i> и <i>растягивать</i>. Вы можете также <i>закрыть</i> окно с помощью
+иконки "x" в верхнем правом углу окна.</p>
+</div> -->
+      <script type="text/javascript">
         <button type="button" name="button">Go</button>
-      <!-- </script> -->
-    </body>
-    </html>
+      </script> 
+  </body>
+  </html>
