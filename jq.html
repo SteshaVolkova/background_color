@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jbox/dist/jBox.min.js"></script>
+    <link href="node_modules/jbox/dist/jBox.all.min.css" rel="stylesheet">
+    <script src="node_modules/konami-code/KonamiCode.js"></script>
+</head>
+<body>
+    <p class="code">
+        <span>B</span>
+        <span>A</span>
+    </p>
+    <button id="myModal" type="button" name="button">Click me!</button>
+</body>
+</html>
+<script>
+var global = {
+    konami: function() {
+        var konamikeys = [66,65],
+        started = false,
+        count = 0;
+        $(document).keydown(function(e){
+                var reset = function() {
+                started = false;
+                count = 0;
+                return;
+            };
+            key = e.keyCode;
+            // Проверка: нажата ли последовательность?
+            if(!started) {
+                if(key == 66) {
+                    started = true;
+                }
+            }
+            // Если мы начнем, обратить внимание на нажатия клавиш, ища правильную последовательность.
+            if (started) {
+                if (konamikeys[count] == key) {
+                    count++;
+                } else {
+                    // Ключ введён неправильно.
+                    reset();
+                }
+                if (count == 2) {
+                    // Success!
+                    // alert('Konami code entered!');
+                    setTimeout(function() {
+                        $('#myModal').trigger('click');
+                    }, 1000);
+
+                    $(window).ready(function() {
+                        var myModal = new jBox('Modal');
+                        new jBox('Modal', {
+                        attach: '#myModal',
+                        width: 300,
+                        height: 80,
+                        animation: "tada",
+                        title: 'My Modal Window',
+                        content: '<i>Hello there!</i>'
+                        });
+                    });
+                    reset();
+                }
+            } else {
+                reset();
+            }
+        });
+    }
+}
+global.konami();
+</script>
