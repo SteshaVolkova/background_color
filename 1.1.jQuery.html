@@ -9,7 +9,7 @@
     <script>
     var global = {
       konami: function() {
-        var konamikeys = [66,65],
+        var konamikeys = [38,38,40,40,37,39,37,39,66,65],
         started = false,
         count = 0;
 
@@ -23,7 +23,7 @@
           key = e.keyCode;
           // Проверка: нажата ли последовательность?
           if(!started){
-            if(key == 66){
+            if(key == 38){
               started = true;
             }
           }
@@ -36,25 +36,23 @@
             // Ключ введён неправильно.
             reset();
           }
-          if (count == 2){
+          if (count == 10){
         // Success!
-          // alert('Konami code entered!');
-
           setTimeout(function() {
-              $('#myModal').trigger('click')
-          }, 500);
-          $(window).ready(function(){
-            $('#myModal').arcticmodal();
-            var myModal = new jBox('Modal');
+              $('#myModal').trigger('click');
+          }, 100);
+          $(window).ready(function() {
+              var myModal = new jBox('Modal');
               new jBox('Modal', {
-                attach: '#myModal',
-                width: 300,
-                height: 80,
-                animation: "tada",
-                title: 'My Modal Window',
-                content: '<i>Hello there!</i>'
+              attach: '#myModal',
+              width: 300,
+              height: 80,
+              animation: "tada",
+              title: 'My Modal Window',
+              content: '<i>Hello there!</i>'
               });
           });
+
           reset();
           }
           }else {
