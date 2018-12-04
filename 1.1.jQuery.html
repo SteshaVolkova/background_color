@@ -25,17 +25,7 @@
       //     reposition: false,
       //     repositionOnOpen: false
       //   });
-      $(window).ready(function() {
-        var myModal = new jBox('Modal');
-          new jBox('Modal', {
-            attach: '#myModal',
-            width: 300,
-            height: 80,
-            animation: "tada",
-            title: 'My Modal Window',
-            content: '<i>Hello there!</i>'
-          });
-        });
+
     var global = {
       konami: function() {
         var konamikeys = [38,38,40,40,37,39,37,39,66,65],
@@ -70,7 +60,17 @@
           if (count == 10){
         // Success!
           alert('Konami code entered!');
-          myModal.open();
+          $(window).ready(function() {
+            var myModal = new jBox('Modal');
+              new jBox('Modal', {
+                attach: '#myModal',
+                width: 300,
+                height: 80,
+                animation: "tada",
+                title: 'My Modal Window',
+                content: '<i>Hello there!</i>'
+              });
+            });
 
 
 
