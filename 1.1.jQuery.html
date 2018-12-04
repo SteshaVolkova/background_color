@@ -7,19 +7,34 @@
     <!-- <script src="package-lock.json"></script> -->
 
 
+
     <script>
-      var myModal = new jBox('Modal');
-      new jBox('Modal', {
-          width: 300,
-          height: 100,
-          attach: '#myModal',
-          title: 'My Modal Window',
-          content: '<i>Hello there!</i>'
-      });
       $(document).ready(function() {
         var myModal = new jBox('Modal');
-
+        new jBox('Modal', {
+            width: 300,
+            height: 100,
+            attach: '#myModal',
+            title: 'My Modal Window',
+            content: '<i>Hello there!</i>'
       });
+        var myModal = new jBox('Modal');
+        new jBox('Modal', {
+          attach: '#Modal-1',
+          width: 350,
+          height: 200,
+          blockScroll: false,
+          animation: 'zoomIn',
+          draggable: 'title',
+          closeButton: true,
+          content: 'You can move this modal window',
+          title: 'Click here to drag me around',
+          overlay: false,
+          reposition: false,
+          repositionOnOpen: false
+        });
+      });
+
       myModal.open();
       $(document).ready(function(){
         $("button").click(function(){
@@ -61,14 +76,108 @@
           </script>
 
         <style type="text/css">
-          body{
-          background-color: white;
+          html {
+            height: 100%;
+            min-height: 100%;
+            }
+
+            body {
+            position: relative;
+            min-height: 100%;
+            font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.4;
+            color: #202428;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            }
+
+            main {
+            padding: 20px 0;
+            }
+
+            .container {
+            position: relative;
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            margin: auto;
+            }
+
+            h2 {
+            font-size: 22px;
+            font-weight: normal;
+            }
+
+            @media (max-width: 768px) {
+
+            .container {
+              width: calc(100% - 30px);
+            }
+            .ajax-sending {
+              color: #07d;
+            }
+
+            .ajax-complete {
+              color: #6c0;
+            }
+
+            .ajax-success tt {
+              color: #666;
+              display: block;
+              padding-top: 10px;
+              font-size: 13px;
+            }
+
+            .ajax-error {
+              color: #d00;
+            }
+            html {
+              font-family: sans-serif;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+            }
+            button {
+              overflow: visible;
+            }
+            button,
+            input,
+            select{
+              font: inherit;
+              margin: 0;
+            }
+            button {
+              overflow: visible;
+            }
+            button,
+            select {
+              text-transform: none;
+            }
+            button,
+            html input[type="button"],
+            input[type="reset"],
+            input[type="submit"] {
+              -webkit-appearance: button;
+              cursor: pointer;
+            }
+            button[disabled],
+            html input[disabled] {
+              cursor: default;
+            }
+            
           }
         </style>
 
     </head>
     <body>
-      <div id="myModal">Click me to open a modal window!</div>
-      <a href="#" id="myModal">Click me to open a modal window!</a>
+      <button id="myModal" type="button" name="button">Color change</button>
+      <main class="container">
+
+        <h2>Modal</h2>
+          <div class="targets-wrapper">
+          <div id="Modal-1" class="target-click">Click me</div>
+          </div>
+      </main>
+      <!-- <button type="button" name="button">Go</button> -->
     </body>
   </html>
