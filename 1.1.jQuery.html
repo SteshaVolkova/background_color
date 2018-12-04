@@ -12,19 +12,18 @@
       $(document).ready(function() {
         var myModal = new jBox('Modal');
         new jBox('Modal', {
-            width: 300,
-            height: 100,
             attach: '#myModal',
+            width: 300,
+            height: 80,
+            animation: "tada",
             title: 'My Modal Window',
             content: '<i>Hello there!</i>'
-      });
+        });
         var myModal = new jBox('Modal');
         new jBox('Modal', {
           attach: '#Modal-1',
           width: 350,
           height: 200,
-          blockScroll: false,
-          animation: 'zoomIn',
           draggable: 'title',
           closeButton: true,
           content: 'You can move this modal window',
@@ -35,44 +34,44 @@
         });
       });
 
-      myModal.open();
-      $(document).ready(function(){
-        $("button").click(function(){
-          var duration = 250;
-          var shadesNumber = 50;
-          var timeout = (shadesNumber - 1) * duration;
-
-          var r = 200;
-          var a = 5;
-          var b = 250;
-          var timerId = setInterval(function(){
-            r = r - a;
-            // alert(r);
-            console.log(r);
-            var n = r.toString(16);
-            var k = b.toString(16);
-
-            // alert(n);
-            var m;
-            m = n + k + k;
-            if(r < 16) {
-                m = "0" + n +  k  + k;
-            };
-            console.log(m);
-            console.log(n);
-            console.log(k);
-                // alert( 'Вы просмотрели 50 оттенков чёрного! Спасибо за внимание!');
-
-            $("body").css("background-color", "#" + m);
-          }, duration);
-
-
-          setTimeout(function() {
-            clearInterval(timerId);
-              alert("Изменение цвета экрана произошло за " + timeout + "sec.");
-          }, timeout);
-        });
-      });
+      // myModal.open();
+      // $(document).ready(function(){
+      //   $("button").click(function(){
+      //     var duration = 250;
+      //     var shadesNumber = 50;
+      //     var timeout = (shadesNumber - 1) * duration;
+      //
+      //     var r = 200;
+      //     var a = 5;
+      //     var b = 250;
+      //     var timerId = setInterval(function(){
+      //       r = r - a;
+      //       // alert(r);
+      //       console.log(r);
+      //       var n = r.toString(16);
+      //       var k = b.toString(16);
+      //
+      //       // alert(n);
+      //       var m;
+      //       m = n + k + k;
+      //       if(r < 16) {
+      //           m = "0" + n +  k  + k;
+      //       };
+      //       console.log(m);
+      //       console.log(n);
+      //       console.log(k);
+      //           // alert( 'Вы просмотрели 50 оттенков чёрного! Спасибо за внимание!');
+      //
+      //       $("body").css("background-color", "#" + m);
+      //     }, duration);
+      //
+      //
+      //     setTimeout(function() {
+      //       clearInterval(timerId);
+      //         alert("Изменение цвета экрана произошло за " + timeout + "sec.");
+      //     }, timeout);
+      //   });
+      // });
           </script>
 
         <style type="text/css">
@@ -81,7 +80,7 @@
             min-height: 100%;
             }
 
-            body {
+          body {
             position: relative;
             min-height: 100%;
             font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
@@ -89,91 +88,37 @@
             line-height: 1.4;
             color: #202428;
             background: #fff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            }
+          }
 
-            main {
+          main {
             padding: 20px 0;
-            }
+          }
 
-            .container {
+          .container {
             position: relative;
-            width: calc(100% - 60px);
+            width: auto;
             max-width: 1000px;
             margin: auto;
-            }
+          }
 
-            h2 {
+          h2 {
             font-size: 22px;
             font-weight: normal;
-            }
+          }
 
-            @media (max-width: 768px) {
-
-            .container {
-              width: calc(100% - 30px);
-            }
-            .ajax-sending {
-              color: #07d;
-            }
-
-            .ajax-complete {
-              color: #6c0;
-            }
-
-            .ajax-success tt {
-              color: #666;
-              display: block;
-              padding-top: 10px;
-              font-size: 13px;
-            }
-
-            .ajax-error {
-              color: #d00;
-            }
-            html {
-              font-family: sans-serif;
-              -ms-text-size-adjust: 100%;
-              -webkit-text-size-adjust: 100%;
-            }
-            button {
+          .container {
+              width: auto;
+          }
+          button {
               overflow: visible;
-            }
-            button,
-            input,
-            select{
-              font: inherit;
-              margin: 0;
-            }
-            button {
-              overflow: visible;
-            }
-            button,
-            select {
-              text-transform: none;
-            }
-            button,
-            html input[type="button"],
-            input[type="reset"],
-            input[type="submit"] {
-              -webkit-appearance: button;
-              cursor: pointer;
-            }
-            button[disabled],
-            html input[disabled] {
-              cursor: default;
-            }
-            
           }
         </style>
 
     </head>
     <body>
-      <button id="myModal" type="button" name="button">Color change</button>
+      <button id="myModal" type="button" name="button">Click me!</button>
       <main class="container">
-
-        <h2>Modal</h2>
+        <h2>Modal window</h2>
           <div class="targets-wrapper">
           <div id="Modal-1" class="target-click">Click me</div>
           </div>
