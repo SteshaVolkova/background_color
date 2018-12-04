@@ -4,37 +4,88 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/jbox/dist/jBox.min.js"></script>
     <link  href = "node_modules/jbox/dist/jBox.all.min.css"  rel = " stylesheet ">
+    <script src="node_modules/konami-code/KonamiCode.js"></script>
     <!-- <script src="package-lock.json"></script> -->
 
 
 
     <script>
-      $(document).ready(function() {
+
+
+      //   var myModal = new jBox('Modal');
+      //   new jBox('Modal', {
+      //     attach: '#Modal-1',
+      //     width: 350,
+      //     height: 200,
+      //     draggable: 'title',
+      //     closeButton: true,
+      //     content: 'You can move this modal window',
+      //     title: 'Click here to drag me around',
+      //     overlay: false,
+      //     reposition: false,
+      //     repositionOnOpen: false
+      //   });
+      $(window).ready(function() {
         var myModal = new jBox('Modal');
-        new jBox('Modal', {
+          new jBox('Modal', {
             attach: '#myModal',
             width: 300,
             height: 80,
             animation: "tada",
             title: 'My Modal Window',
             content: '<i>Hello there!</i>'
+          });
         });
-        var myModal = new jBox('Modal');
-        new jBox('Modal', {
-          attach: '#Modal-1',
-          width: 350,
-          height: 200,
-          draggable: 'title',
-          closeButton: true,
-          content: 'You can move this modal window',
-          title: 'Click here to drag me around',
-          overlay: false,
-          reposition: false,
-          repositionOnOpen: false
-        });
-      });
+    var global = {
+      konami: function() {
+        var konamikeys = [38,38,40,40,37,39,37,39,66,65],
+        started = false,
+        count = 0;
 
-      // myModal.open();
+        $(document).keydown(function(e){
+          var reset = function() {
+            started = false;
+            count = 0;
+            return;
+          };
+
+          key = e.keyCode;
+
+          // Проверка: нажата ли последовательность?
+          if(!started){
+            if(key == 38){
+              started = true;
+            }
+          }
+
+          // Если мы начнем, обратить внимание на нажатия клавиш, ища правильную последовательность.
+          if (started){
+
+          if (konamikeys[count] == key){
+            count++;
+          } else {
+            // Ключ введён неправильно.
+            reset();
+          }
+          if (count == 10){
+        // Success!
+          alert('Konami code entered!');
+          myModal.open();
+
+
+
+          reset();
+          }
+          } else {
+            reset();
+          }
+        });
+      }
+    }
+    global.konami();
+    //
+
+
       // $(document).ready(function(){
       //   $("button").click(function(){
       //     var duration = 250;
@@ -112,17 +163,61 @@
           button {
               overflow: visible;
           }
+          body {
+            color: #444;
+            font: normal 18px Helvetica, Arial, sans-serif;
+            text-align: center;
+          }
+
+          .code {
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          .code span {
+            background: #cccccc;
+            box-shadow: 1px 0 0 #efefef inset, -1px 0 0 #efefef inset;
+            border: 1px solid #bbb;
+            border-bottom: 4px solid #aaa;
+            border-radius: 20px;
+            display: inline-block;
+            height: 24px;
+            padding: 5px;
+            margin: 0 1px;
+            text-align: center;
+            text-shadow: 10 1px 10 #fff;
+            width: 24px;
+          }
         </style>
 
     </head>
     <body>
-      <button id="myModal" type="button" name="button">Click me!</button>
+
+      <!-- <button id="myModal" type="button" name="button">Click me!</button> -->
       <main class="container">
         <h2>Modal window</h2>
           <div class="targets-wrapper">
-          <div id="Modal-1" class="target-click">Click me</div>
+            <div id="myModal"></div>
+          <!-- <div id="Modal-1" class="target-click">Click me</div> -->
           </div>
       </main>
+
+      <p>
+        Click somewhere in the output box [here] to ensure focus.<br> Then enter the following code using your keyboard:
+      </p>
+
+      <p class="code">
+        <span>&uarr;</span>
+        <span>&uarr;</span>
+        <span>&darr;</span>
+        <span>&darr;</span>
+        <span>&larr;</span>
+        <span>&rarr;</span>
+        <span>&larr;</span>
+        <span>&rarr;</span>
+        <span>B</span>
+        <span>A</span>
+      </p>
       <!-- <button type="button" name="button">Go</button> -->
     </body>
   </html>
