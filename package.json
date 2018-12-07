@@ -1,0 +1,25 @@
+{
+  "name": "jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js.js",
+  "dependencies": {
+    "jbox": "^0.5.2",
+    "jquery": "^3.3.1",
+    "konami-code": "^0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteshaVolkova/background_color.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteshaVolkova/background_color/issues"
+  },
+  "homepage": "https://github.com/SteshaVolkova/background_color#readme"
+}
