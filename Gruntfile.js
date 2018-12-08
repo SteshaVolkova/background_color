@@ -13,21 +13,24 @@ module.exports = function(grunt) {
             }
           }
         },
-				concat: {
-			    options: {
-			      separator: ';',
-			    },
-			    dist: {
-			      src: ['js/js.js', 'node_modules/jbox/dist/jBox.min.js', 'node_modules/jbox/dist/jBox.min.js', 'node_modules/konami-code/KonamiCode.js'],
-			      dest: 'fin.js'
-			    },
-			  }
+				uglify: {
+					my_target: {
+						files: {
+							'fin.js': [
+									'node_modules/jquery/dist/jquery.min.js',
+									'node_modules/konami-code/KonamiCode.js',
+									'node_modules/jbox/dist/jBox.min.js',
+									'js/js.js'
+							]
+						}
+					}
+				}
 	  });
     // plagins
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-		grunt.loadNpmTasks('grunt-contrib-concat');
+		grunt.loadNpmTasks('grunt-contrib-uglify');
     //list console command
     grunt.registerTask('default', ['cssmin']);
-		grunt.registerTask('concat', ['concat']);
+		grunt.registerTask('pop', ['uglify']);
 
 };
