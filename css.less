@@ -1,12 +1,9 @@
-.container {
-  position: relative;
-  width: auto;
-  max-width: 1000px;
-  margin: auto;
-}
-.container {
-    width: auto;
-}
+// @max-width: 1000px;
+// .container {
+//   position: relative;
+//   width: @max-width;
+//   margin: @max-width;
+// }
 button {
     overflow: visible;
 }
@@ -14,25 +11,29 @@ body {
   color: #444;
   font: normal 18px Helvetica, Arial, sans-serif;
   text-align: center;
-}
-.code {
-  font-size: 18px;
-  font-weight: bold;
+  padding: 100px 0;
 }
 #myModal{
   display: none;
 }
-.code span {
-  background: #cccccc;
-  box-shadow: 1px 0 0 #efefef inset, -1px 0 0 #efefef inset;
-  border: 1px solid #bbb;
-  border-bottom: 4px solid #aaa;
-  border-radius: 20px;
-  display: inline-block;
-  height: 24px;
-  padding: 5px;
-  margin: 0 1px;
-  text-align: center;
-  text-shadow: 10 1px 10 #fff;
-  width: 24px;
+@border-radius: 20px;
+@height: @border-radius + 4px;
+.code {
+  font-size: 18px;
+  font-weight: bold;
+  span {
+
+    background: #00FF80;
+    box-shadow: 1px 0 0 #efefef inset, -1px 0 0 #efefef inset;
+    border: 1px solid #bbb;
+    border-bottom: 4px solid #aaa;
+    border-radius: @border-radius;
+    display: inline-block;
+    height: @height;
+    padding: 5px;
+    margin:  1px;
+    text-align: center;
+    text-shadow: 10 1px 10 #fff;
+    width: @height;
+  }
 }
