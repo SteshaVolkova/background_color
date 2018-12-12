@@ -38,12 +38,32 @@ module.exports = function(grunt) {
 							]
 						}
 					}
+				},
+				watch: {
+				    options: {
+				    livereload: true,
+					  },
+					  scripts: {
+					        files: ['js/js.js'],
+					        tasks: ['uglify'],
+					        options: {
+					            spawn: false
+					        }
+					    },
+					  css: {
+					    files: ['css.less','css.css',],
+					    tasks: ['less','cssmin'],
+					        options: {
+            spawn: false
+        		}
+  				}
 				}
 	  });
     // plagins
 		grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
+		grunt.loadNpmTasks('grunt-contrib-watch');
 	    //list console command
-		grunt.registerTask('default', ['less', 'cssmin','uglify']);
+		grunt.registerTask('default', ['less', 'cssmin','uglify', 'watch']);
 };
