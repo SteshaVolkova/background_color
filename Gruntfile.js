@@ -2,29 +2,27 @@ module.exports = function(grunt) {
     // Project configuration.
 	grunt.initConfig({
 			//LESS COMPILER
-      // less: {
-         // development: {
-            // options: {
-               // compress: true,
-               // yuicompress: true,
-               // optimization: 2
-            // },
-            // files: {
-               // target.css file: source.less file
-               // "css.css": "css.less"
-          	// }
-      		// }
-   			// },
-		   // watch: {
-		      // styles: {
-		         // files: ['css.less'], // which files to watch
-		         // tasks: ['less'],
-		         // options: {
-		            // nospawn: true
-		         // }
-		      // }
-					// }
-
+		 less: {
+				development: {
+					 options: {
+							compress: true,
+							yuicompress: true,
+							optimization: 2
+					 },
+					 files: {
+							// target.css file: source.less file
+							"css.css": "css.less"
+					 }
+			 	}
+			},
+			// watch: {
+			// 	 styles: {
+			// 			files: ['css.less'], // which files to watch
+			// 			tasks: ['less'],
+			// 			options: {
+			// 				 nospawn: true
+			// 			}
+			// 	 },
 				// CSS COMPILER
         cssmin: {
           options: {
@@ -52,12 +50,13 @@ module.exports = function(grunt) {
 				}
 	  });
     // plagins
+		grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
-		// grunt.loadNpmTasks('grunt-contrib-less');
-		// grunt.loadNpmTasks('grunt-contrib-watch');
+		//grunt.loadNpmTasks('grunt-contrib-watch');
     //list console command
-    grunt.registerTask('default', ['cssmin']);
-		grunt.registerTask('pop', ['uglify']);
+    //grunt.registerTask('css', ['cssmin']);
+		// grunt.registerTask('js', ['uglify']);
+		grunt.registerTask('default', ['less', 'cssmin','uglify']);
 		// grunt.registerTask('less', ['watch']);
 };
