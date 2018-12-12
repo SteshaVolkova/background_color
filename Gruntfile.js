@@ -10,20 +10,11 @@ module.exports = function(grunt) {
 							optimization: 2
 					 },
 					 files: {
-							// target.css file: source.less file
-							"css.css": "css.less"
+						 "css.css": "css.less"
 					 }
 			 	}
 			},
-			// watch: {
-			// 	 styles: {
-			// 			files: ['css.less'], // which files to watch
-			// 			tasks: ['less'],
-			// 			options: {
-			// 				 nospawn: true
-			// 			}
-			// 	 },
-				// CSS COMPILER
+			// CSS COMPILER
         cssmin: {
           options: {
             mergeIntoShorthands: false,
@@ -53,10 +44,6 @@ module.exports = function(grunt) {
 		grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
-		//grunt.loadNpmTasks('grunt-contrib-watch');
-    //list console command
-    //grunt.registerTask('css', ['cssmin']);
-		// grunt.registerTask('js', ['uglify']);
+	    //list console command
 		grunt.registerTask('default', ['less', 'cssmin','uglify']);
-		// grunt.registerTask('less', ['watch']);
 };
